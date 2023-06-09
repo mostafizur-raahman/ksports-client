@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+    
     const navItems = (
         <>
             <div className="flex gap-3">
-                <NavLink>Home</NavLink>
-                <NavLink>Instructor</NavLink>
-                <NavLink>Classes</NavLink>
-                <NavLink>Dashboard</NavLink>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/instructor'>Instructor</NavLink>
+                <NavLink to='/classes'>Classes</NavLink>
+                <NavLink to='/dashboard'>Dashboard</NavLink>
             </div>
         </>
     );
