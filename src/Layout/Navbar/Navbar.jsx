@@ -1,14 +1,21 @@
 import { NavLink } from "react-router-dom";
-
+import './Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { FaHeadphones } from 'react-icons/fa';
 const Navbar = () => {
-    
+    const {user} = useContext(AuthContext)
     const navItems = (
         <>
             <div className="flex gap-3">
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/instructor'>Instructor</NavLink>
-                <NavLink to='/classes'>Classes</NavLink>
-                <NavLink to='/dashboard'>Dashboard</NavLink>
+                <NavLink to='/' activeClassName="active">Home</NavLink>
+                <NavLink to='/instructor' activeClassName="active">Instructor</NavLink>
+                <NavLink to='/classes' activeClassName="active">Classes</NavLink>
+                <NavLink to='/register' activeClassName="active">Register</NavLink>
+                <NavLink to='/login' activeClassName="active">Login</NavLink>
+                {
+                    user && <NavLink to='/dashboard' activeClassName="active">Dashboard</NavLink>
+                }
             </div>
         </>
     );
@@ -50,7 +57,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">{navItems}</ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <p className="text-xl flex items-center gap-2"><FaHeadphones></FaHeadphones> Customer Care</p>
                 </div>
             </div>
         </div>

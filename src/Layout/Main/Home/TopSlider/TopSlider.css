@@ -1,0 +1,20 @@
+.bgImg{
+    background-image: url(https://i.ibb.co/Kr4Hw0D/football.jpg);
+    height: 100%;
+    width: 100%;
+    
+    background-size: cover;
+}
+.bgImg2{
+    background-image: url(https://i.ibb.co/SdppcFH/cricket.jpg);
+    height: 100%;
+    width: 100%;
+    opacity: 80%;
+    background-size: cover;
+}
+.bgImg3{
+    background-image: url(https://i.ibb.co/NYR6cFh/badminton.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}

@@ -1,9 +1,12 @@
+import PopularCourse from "../../PopularCourse/PopularCourse";
+import TopSlider from "./TopSlider/TopSlider";
 
 
 const Home = () => {
     return (
         <div>
-            <h1>This is home</h1>
+          <TopSlider></TopSlider>
+          <PopularCourse></PopularCourse>
         </div>
     );
 };

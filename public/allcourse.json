@@ -1,0 +1,144 @@
+[
+    {   "_id": 1,
+        "name": "Cricket Coaching",
+        "availableSeats": 10,
+        "enroll":200,
+        "price": 100,
+        "category":"popular",
+        "description": "Join our professional cricket coaching program to enhance your skills and techniques on the cricket field.",
+        "image": "https://i.ibb.co/Ry19VWJ/cri.jpg"
+    },
+    {   
+      "_id": 2,
+        "name": "Football Coaching",
+        "availableSeats": 150,
+        "enroll":220,
+        "price": 150,
+        "category":"popular",
+        "description": "Experience top-notch football coaching that focuses on technical proficiency, tactical awareness, and teamwork.",
+        "image": "https://i.ibb.co/WHZGmw8/foo.jpg"
+    },
+    {    "_id": 3,
+        "name": "Badminton Coaching",
+        "availableSeats": 80,
+        "enroll":400,
+        "price": 80,
+        "category":"popular",
+        "description": "Improve your badminton game with our expert coaching, emphasizing footwork, racket skills, and strategic play.",
+        "image": "https://i.ibb.co/wrzNnqQ/bad.jpg"
+    },
+    {
+        "name": "Hockey Coaching",
+        "_id": 4,
+        "enroll":20,
+        "availableSeats": 12,
+        "price": 120,
+        "description": "Join our hockey coaching program to develop your skills in stick handling, passing, and game strategy.",
+        "image": "https://i.ibb.co/CnSgtd8/hockey.jpg"
+    },
+    {
+        "name": "Chess Coaching",
+        "_id": 5,
+        "availableSeats": 5,
+        "price": 50,
+        "enroll":5500,
+        "category":"popular",
+        "description": "Enhance your chess skills with our comprehensive coaching program covering opening theory, middlegame strategies, and endgame techniques.",
+        "image": "https://i.ibb.co/269sHqW/chess.jpg"
+    },
+    {
+        "name": "Tennis Coaching",
+        "_id": 6,
+        "availableSeats": 10,
+        "enroll":120,
+        "price": 120,
+        "description": "Learn and improve your tennis skills with our professional coaching, focusing on strokes, footwork, and match tactics.",
+        "image": "https://i.ibb.co/PgCg5hV/tenis.jpg"
+    },
+    {
+        "name": "Basketball Coaching",
+        "_id": 7,
+        "availableSeats": 10,
+        "enroll":770,
+        "price": 100,
+        "category":"popular",
+        "description": "Join our basketball coaching program to develop fundamental skills, teamwork, and game strategy on the court.",
+        "image": "https://i.ibb.co/bX2Qrrn/basketball.jpg"
+    },
+    {
+        "name": "Volleyball Coaching",
+        "_id": 8,
+        "availableSeats": 10,
+        "enroll":2001,
+        "price": 90,
+        "category":"popular",
+        "description": "Improve your volleyball skills through our coaching program, covering serving, passing, setting, and attacking techniques.",
+        "image": "https://i.ibb.co/ZgZTZLj/volly.jpg"
+    },
+    {
+        "name": "Swimming Coaching",
+        "_id": 9,
+        "availableSeats": 15,
+        "enroll":3400,
+        "price": 150,
+        "category":"popular",
+        "description": "Learn and refine your swimming technique with our experienced coaches, focusing on strokes, breathing, and endurance.",
+        "image": "https://i.ibb.co/9txDF8T/swim.jpg"
+    },
+    {
+        "name": "Golf Coaching",
+        "_id": 10,
+        "enroll":299,
+        "availableSeats": 6,
+        "price": 200,
+        "category":"popular",
+        "description": "Develop your golf skills with our specialized coaching program, covering swing mechanics, short game, and course management.",
+        "image": "https://i.ibb.co/9gmmyjL/golf.jpg"
+    },
+    {
+        "name": "Table Tennis Coaching",
+        "_id": 11,
+        "enroll":1000,
+        "availableSeats": 8,
+        "price": 80,
+        "category":"popular",
+        "description": "Enhance your table tennis skills with our dedicated coaching, focusing on grip, strokes, spins, and game strategies.",
+        "image": "https://i.ibb.co/nQ85Fcj/table-tenis.jpg"
+    },
+    {
+        "name": "Athletics Coaching",
+        "_id": 12,
+        "availableSeats": 12,
+        "enroll":770,
+        "price": 120,
+        "description": "Join our athletics coaching program to improve your speed, agility, strength, and technique in various track and field events.",
+        "image": "https://i.ibb.co/ch734tJ/atlet.jpg"
+    },
+    {
+        "name": "Rugby Coaching",
+        "_id": 13,
+        "enroll":90,
+        "availableSeats": 12,
+        "price": 150,
+        "description": "Experience comprehensive rugby coaching that emphasizes skills, tactics, teamwork, and physical conditioning.",
+        "image": "https://i.ibb.co/sQWftLN/rugy.jpg"
+    },
+    {
+        "name": "Martial Arts Coaching",
+        "_id": 14,
+        "availableSeats": 10,
+        "enroll":70,
+        "price": 100,
+        "description": "Learn and train in various martial arts disciplines with our expert coaches, focusing on technique, self-defense, and discipline.",
+        "image": "https://i.ibb.co/kKfKwQh/mart.jpg"
+    },
+    {
+        "name": "Cycling Coaching",
+        "_id": 15,
+        "enroll":20,
+        "availableSeats": 10,
+        "price": 80,
+        "description": "Improve your cycling performance with our coaching program, covering techniques, endurance, and race strategies.",
+        "image": "https://i.ibb.co/cgfTv6s/cycle.jpg"
+    }
+]

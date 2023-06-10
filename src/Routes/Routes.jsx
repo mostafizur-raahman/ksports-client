@@ -4,29 +4,39 @@ import Home from "../Layout/Main/Home/Home";
 import Instructor from "../Layout/Main/Instructors/Instructor";
 import Class from "../Layout/Main/Classes/Class";
 import Dashboard from "../Layout/Main/Dashboard/Dashboard";
+import Login from "../Layout/Login/Login";
+import Registration from "../Layout/Registration/Registration";
 
 const router = createBrowserRouter([
     {
-        path:'/',
+        path: "/",
         element: <Main></Main>,
-        children:[
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: "/",
+                element: <Home></Home>,
             },
             {
-                path:'/instructor',
-                element: <Instructor></Instructor>
+                path: "/instructor",
+                element: <Instructor></Instructor>,
             },
             {
-                path:'/classes',
-                element: <Class></Class>
+                path: "/classes",
+                element: <Class></Class>,
             },
             {
-                path:'/dashboard',
-                element: <Dashboard></Dashboard>
-            }
-        ]
-    }
-])
+                path: "/login",
+                element: <Login></Login>,
+            },
+            {
+                path:'/register',
+                element:<Registration></Registration>
+            },
+            {
+                path: "/dashboard",
+                element: <Dashboard></Dashboard>,
+            },
+        ],
+    },
+]);
 export default router;
