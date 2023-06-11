@@ -1,19 +1,26 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
+
 const Login = () => {
-
-
-    const handleLogin =(e)=>{
+    const { signIn } = useContext(AuthContext);
+    const handleLogin = (e) => {
         e.preventDefault();
         const from = e.target;
         const email = from.email.value;
         const password = from.password.value;
-        console.log(email,password);
-    }
+        console.log(email, password);
+        signIn(email,password)
+        .then(result =>{
+            const user = result.user;
+
+        })
+    };
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
-                  
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     {/* login form */}
@@ -39,19 +46,17 @@ const Login = () => {
                                 placeholder="password"
                                 className="input input-bordered"
                             />
-                            <label className="label">
-                                <a
-                                    href="#"
-                                    className="label-text-alt link link-hover"
-                                >
-                                    Forgot password?
-                                </a>
-                            </label>
+                           
                         </div>
                         <div className="form-control mt-6">
-                            <input type="submit" value="Log in" className="btn btn-neutral"/>
+                            <input
+                                type="submit"
+                                value="Log in"
+                                className="btn btn-neutral"
+                            />
                         </div>
                     </form>
+                    <Link to='/register' className="text-center p-2">New to Ksports <span className="text-sky-500">Register</span>!</Link>
                 </div>
             </div>
         </div>
