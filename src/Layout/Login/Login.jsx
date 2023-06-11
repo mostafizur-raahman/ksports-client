@@ -1,20 +1,31 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const to = location.state?.from?.pathname || "/";
     const handleLogin = (e) => {
         e.preventDefault();
         const from = e.target;
         const email = from.email.value;
         const password = from.password.value;
         console.log(email, password);
-        signIn(email,password)
-        .then(result =>{
+        signIn(email, password).then((result) => {
             const user = result.user;
-
-        })
+            console.log(user);
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "log in successfull!",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            navigate(to, { replace: true });
+        });
     };
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -41,12 +52,11 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input
-                                type="text"
+                                type="password"
                                 name="password"
                                 placeholder="password"
                                 className="input input-bordered"
                             />
-                           
                         </div>
                         <div className="form-control mt-6">
                             <input
@@ -56,7 +66,10 @@ const Login = () => {
                             />
                         </div>
                     </form>
-                    <Link to='/register' className="text-center p-2">New to Ksports <span className="text-sky-500">Register</span>!</Link>
+                    <Link to="/register" className="text-center p-2">
+                        New to Ksports{" "}
+                        <span className="text-sky-500">Register</span>!
+                    </Link>
                 </div>
             </div>
         </div>

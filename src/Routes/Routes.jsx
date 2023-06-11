@@ -6,6 +6,7 @@ import Class from "../Layout/Main/Classes/Class";
 import Dashboard from "../Layout/Main/Dashboard/Dashboard";
 import Login from "../Layout/Login/Login";
 import Registration from "../Layout/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <Dashboard></Dashboard>,
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
             },
         ],
     },

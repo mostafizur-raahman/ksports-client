@@ -17,10 +17,10 @@ const Navbar = () => {
                 <NavLink to='/' activeClassName="active">Home</NavLink>
                 <NavLink to='/instructor' activeClassName="active">Instructor</NavLink>
                 <NavLink to='/classes' activeClassName="active">Classes</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
                 {
                     user ? <>
                     <img src={user.photoURL} alt="user" />
-                    <NavLink to="/dashboard">Dashboard</NavLink>
                     <button className="btn" onClick={handleLogout}>Log out</button>
 
                     </> : <>
