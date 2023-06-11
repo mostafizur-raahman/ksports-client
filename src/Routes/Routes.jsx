@@ -7,6 +7,7 @@ import Dashboard from "../Layout/Main/Dashboard/Dashboard";
 import Login from "../Layout/Login/Login";
 import Registration from "../Layout/Registration/Registration";
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/classes",
-                element: <Class></Class>,
+                element:<Class></Class>,
             },
             {
                 path: "/login",

@@ -1,6 +1,6 @@
 
 
-const Registration = () => {
+const Enroll = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Registration = () => {
     );
 };
 
-export default Registration;
+export default Enroll;

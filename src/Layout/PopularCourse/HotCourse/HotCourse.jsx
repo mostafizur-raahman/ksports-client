@@ -18,9 +18,9 @@ const HotCourse = ({ course }) => {
                 </div>
                 <p className="flex items-center text-2xl">price: <FaDollarSign></FaDollarSign> {price}</p>
                 <p className="text-2xl font-semibold">Already Enroll : {enroll}</p>
-                <div className="card-actions justify-center">
+                {/* <div className="card-actions justify-center">
                     <button className="btn btn-primary">Enroll Now</button>
-                </div>
+                </div> */}
             </div>
         </div>
     );

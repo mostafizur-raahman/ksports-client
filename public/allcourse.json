@@ -1,6 +1,7 @@
 [
     {   "_id": 1,
         "name": "Cricket Coaching",
+        "teacher_name": "Md Mostafizur rahman",
         "availableSeats": 10,
         "enroll":200,
         "price": 100,
@@ -12,6 +13,7 @@
       "_id": 2,
         "name": "Football Coaching",
         "availableSeats": 150,
+        "teacher_name": "Kahlid Ahamed",
         "enroll":220,
         "price": 150,
         "category":"popular",
@@ -20,6 +22,7 @@
     },
     {    "_id": 3,
         "name": "Badminton Coaching",
+        "teacher_name": "Abir Ahamed",
         "availableSeats": 80,
         "enroll":400,
         "price": 80,
@@ -30,6 +33,7 @@
     {
         "name": "Hockey Coaching",
         "_id": 4,
+        "teacher_name": "Md Mostafizur rahman",
         "enroll":20,
         "availableSeats": 12,
         "price": 120,
@@ -39,6 +43,7 @@
     {
         "name": "Chess Coaching",
         "_id": 5,
+        "teacher_name": "Kahlid Ahamed",
         "availableSeats": 5,
         "price": 50,
         "enroll":5500,
@@ -48,6 +53,7 @@
     },
     {
         "name": "Tennis Coaching",
+        "teacher_name": "Abir Ahamed",
         "_id": 6,
         "availableSeats": 10,
         "enroll":120,
@@ -57,6 +63,7 @@
     },
     {
         "name": "Basketball Coaching",
+        "teacher_name": "Md Mostafizur rahman",
         "_id": 7,
         "availableSeats": 10,
         "enroll":770,
@@ -68,6 +75,7 @@
     {
         "name": "Volleyball Coaching",
         "_id": 8,
+        "teacher_name": "Kahlid Ahamed",
         "availableSeats": 10,
         "enroll":2001,
         "price": 90,
@@ -77,6 +85,7 @@
     },
     {
         "name": "Swimming Coaching",
+        "teacher_name": "Abir Ahamed",
         "_id": 9,
         "availableSeats": 15,
         "enroll":3400,
@@ -88,6 +97,7 @@
     {
         "name": "Golf Coaching",
         "_id": 10,
+        "teacher_name": "Md Mostafizur rahman",
         "enroll":299,
         "availableSeats": 6,
         "price": 200,
@@ -98,6 +108,7 @@
     {
         "name": "Table Tennis Coaching",
         "_id": 11,
+        "teacher_name": "Abir Ahamed",
         "enroll":1000,
         "availableSeats": 8,
         "price": 80,
@@ -108,6 +119,7 @@
     {
         "name": "Athletics Coaching",
         "_id": 12,
+        "teacher_name": "Kahlid Ahamed",
         "availableSeats": 12,
         "enroll":770,
         "price": 120,
@@ -116,6 +128,7 @@
     },
     {
         "name": "Rugby Coaching",
+        "teacher_name": "Md Mostafizur rahman",
         "_id": 13,
         "enroll":90,
         "availableSeats": 12,
@@ -125,6 +138,7 @@
     },
     {
         "name": "Martial Arts Coaching",
+        "teacher_name": "Abir Ahamed",
         "_id": 14,
         "availableSeats": 10,
         "enroll":70,
@@ -135,6 +149,7 @@
     {
         "name": "Cycling Coaching",
         "_id": 15,
+        "teacher_name": "Md Mostafizur rahman",
         "enroll":20,
         "availableSeats": 10,
         "price": 80,

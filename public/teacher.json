@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "category": "Football",
+        "name": "Mostafizur Rahman",
+        "img": "https://i.ibb.co/ZYgssRD/ins1.jpg",
+        "email":"mostafiz@gmail.com",
+        "bio": "Passionate football coach with a focus on teamwork and strategy.",
+        "likes": 123,
+        "experience": 10,
+        "popular": true
+    },
+    {
+        "id": 2,
+        "category": "Cricket",
+        "name": "kahlid Ahamed",
+        "email":"khalid@gmail.com",
+        "img": "https://i.ibb.co/SvBkXv5/ins2.jpg",
+        "bio": "Former international cricketer turned coach. Avid believer in technique and discipline.",
+        "likes": 456,
+        "experience": 15,
+        "popular": true
+    },
+    {
+        "id": 3,
+        "category": "Badminton",
+        "name": "Abir ahamed",
+        "email":"david@gmail.com",
+        "img": "https://i.ibb.co/HLZZXtq/ina3.jpg",
+        "bio": "Passionate badminton coach who focuses on developing strong fundamentals and agility.",
+        "likes": 789,
+        "experience": 8,
+        "popular": true
+    },
+    {
+        "id": 4,
+        "category": "Tennis",
+        "name": "Mostafizur Rahman",
+        "img": "https://i.ibb.co/ZYgssRD/ins1.jpg",
+        "email":"mostafiz@gmail.com",
+        "bio": "Experienced tennis coach specializing in technique and mental strength.",
+        "likes": 234,
+        "experience": 12
+    },
+    {
+        "id": 5,
+        "category": "Basketball",
+        "name": "kahlid Ahamed",
+        "email":"khalid@gmail.com",
+        "img": "https://i.ibb.co/SvBkXv5/ins2.jpg",
+        "bio": "Former professional basketball player turned coach. Emphasizes skill development and teamwork.",
+        "likes": 567,
+        "experience": 20
+    },
+    {
+        "id": 6,
+        "category": "Swimming",
+        "name": "Mostafizur Rahman",
+        "img": "https://i.ibb.co/ZYgssRD/ins1.jpg",
+        "email":"mostafiz@gmail.com",
+        "bio": "Passionate swimming coach dedicated to improving technique and endurance.",
+        "likes": 345,
+        "experience": 6
+    },
+    {
+        "id": 7,
+        "category": "Golf",
+        "name": "Abir Ahamed",
+        "email":"david@gmail.com",
+        "img": "https://i.ibb.co/HLZZXtq/ina3.jpg",
+        "bio": "Experienced golf coach with a focus on swing mechanics and course management.",
+        "likes": 678,
+        "experience": 18
+    },
+    {
+        "id": 8,
+        "category": "Martial Arts",
+        "name": "kahlid Ahmed",
+        "email":"khalid@gmail.com",
+        "img": "https://i.ibb.co/SvBkXv5/ins2.jpg",
+        "bio": "Skilled martial arts instructor specializing in karate and self-defense.",
+        "likes": 123,
+        "experience": 10
+    }
+]
