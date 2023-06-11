@@ -1,20 +1,32 @@
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+
 import { FaHeadphones } from 'react-icons/fa';
+import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext);
+    const handleLogout =()=>{
+        logOut()
+        .then(()=>{})
+        .catch(e=> console.log(e))
+    }
     const navItems = (
         <>
             <div className="flex gap-3">
                 <NavLink to='/' activeClassName="active">Home</NavLink>
                 <NavLink to='/instructor' activeClassName="active">Instructor</NavLink>
                 <NavLink to='/classes' activeClassName="active">Classes</NavLink>
-                <NavLink to='/register' activeClassName="active">Register</NavLink>
-                <NavLink to='/login' activeClassName="active">Login</NavLink>
                 {
-                    user && <NavLink to='/dashboard' activeClassName="active">Dashboard</NavLink>
+                    user ? <>
+                    <img src={user.photoURL} alt="user" />
+                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <button className="btn" onClick={handleLogout}>Log out</button>
+
+                    </> : <>
+                    <NavLink to='/register' activeClassName="active">Register</NavLink>
+                <NavLink to='/login' activeClassName="active">Login</NavLink>
+                    </>
                 }
             </div>
         </>
