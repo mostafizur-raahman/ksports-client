@@ -9,7 +9,7 @@ const useSelect = () => {
     const { refetch,data: select = []} = useQuery({
         queryKey: ['selects',user?.email],
         queryFn: async ()=>{
-            const response = await fetch(`http://localhost:5000/selects?email=${user.email}`);
+            const response = await fetch(`http://localhost:5000/selects?email=${user?.email}`);
             return response.json();
         },
       })
