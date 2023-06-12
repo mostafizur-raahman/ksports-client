@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { FaAlignJustify, FaHome, FaShoppingCart } from "react-icons/fa";
+import { FaAlignJustify, FaHome, FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useSelect from "../../../hooks/useSelect";
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext); 
+    const { user } = useContext(AuthContext);
     const [select] = useSelect();
+
+    const isAdmin = true;
+
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -34,26 +37,68 @@ const Dashboard = () => {
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
                         <div className=" items-center grid">
-                            <img src={user?.photoURL} className="w-[100px] h-[100px] rounded-full" alt="" />
-                            <h1 className="text-2xl font-semibold font-mono">Welcome,<span className="text-sky-500">{user?.displayName}</span></h1>
+                            <img
+                                src={user?.photoURL}
+                                className="w-[100px] h-[100px] rounded-full"
+                                alt=""
+                            />
+                            <h1 className="text-2xl font-semibold font-mono">
+                                Welcome,
+                                <span className="text-sky-500">
+                                    {user?.displayName}
+                                </span>
+                            </h1>
                         </div>
-                        <li>
+                        {
+                        isAdmin ? (
+                            <>
+                            <li>
                             <Link
                                 to="/dashboard/myselect"
                                 className="flex items-center gap-3"
                             >
                                 
-                                <FaShoppingCart></FaShoppingCart>My Cart  <div className="badge badge-secondary">+{select?.length || 0}</div>
+                                <FaAlignJustify></FaAlignJustify>  Manage Classes
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/enroll" className="flex items-center gap-3">
+                            <Link to="/dashboard/allusers" className="flex items-center gap-3">
                                
-                              <FaAlignJustify></FaAlignJustify>  Enroll class
+                            <FaUser></FaUser> Manage User
                             </Link>
                         </li>
+                            </>
+                        ) : (
+                            <>
+                                <li>
+                                    <Link
+                                        to="/dashboard/myselect"
+                                        className="flex items-center gap-3"
+                                    >
+                                        <FaShoppingCart></FaShoppingCart>My Cart{" "}
+                                        <div className="badge badge-secondary">
+                                            +{select?.length || 0}
+                                        </div>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/dashboard/enroll"
+                                        className="flex items-center gap-3"
+                                    >
+                                        <FaAlignJustify></FaAlignJustify> Enroll
+                                        class
+                                    </Link>
+                                </li>
+                            </>
+                        )}
                         <div className="divider"></div>
-                        <li><Link to='/'   className="flex items-center gap-3"> <FaHome> </FaHome>Home</Link></li>
+                        <li>
+                            <Link to="/" className="flex items-center gap-3">
+                                {" "}
+                                <FaHome> </FaHome>Home
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -43,16 +43,16 @@ const AuthProvider = ({ children }) => {
                 })
                     .then((res) => res.json())
                     .then((data) => {
-                        if (data.insertedId) {
+                        console.log(data);
                             Swal.fire({
                                 position: "top",
                                 icon: "success",
-                                title: "Registration successfull!",
+                                title: "Login successfull!",
                                 showConfirmButton: false,
                                 timer: 1500,
                             });
                             
-                        }
+                      
                     });
             })
             .catch((e) => {

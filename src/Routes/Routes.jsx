@@ -9,6 +9,7 @@ import Registration from "../Layout/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import MySelect from "../Layout/Main/Dashboard/MySelect/MySelect";
 import Enroll from "../Layout/Main/Dashboard/Enroll/Enroll";
+import AllUsers from "../Layout/Main/Dashboard/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path:'enroll',
                 element:<Enroll></Enroll>
+            },
+            {
+                path:'allusers',
+                element:<AllUsers></AllUsers>
             }
         ]
     },
