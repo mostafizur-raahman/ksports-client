@@ -19,6 +19,7 @@ const CourseCard = ({ course }) => {
             const selectItem = {
                 itemId: _id,
                 name,
+                image,
                 teacher_name,
                 price,
                 email: user.email,

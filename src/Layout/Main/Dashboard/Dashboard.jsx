@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { FaAlignJustify, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useSelect from "../../../hooks/useSelect";
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext); 
+    const [select] = useSelect();
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -41,7 +43,7 @@ const Dashboard = () => {
                                 className="flex items-center gap-3"
                             >
                                 
-                                <FaShoppingCart></FaShoppingCart>My Cart
+                                <FaShoppingCart></FaShoppingCart>My Cart  <div className="badge badge-secondary">+{select?.length || 0}</div>
                             </Link>
                         </li>
                         <li>
@@ -51,7 +53,7 @@ const Dashboard = () => {
                             </Link>
                         </li>
                         <div className="divider"></div>
-                        <li><Link   className="flex items-center gap-3"> <FaHome> </FaHome>Home</Link></li>
+                        <li><Link to='/'   className="flex items-center gap-3"> <FaHome> </FaHome>Home</Link></li>
                     </ul>
                 </div>
             </div>
