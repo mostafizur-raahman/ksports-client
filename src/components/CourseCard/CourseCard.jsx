@@ -3,26 +3,37 @@ import { FaDollarSign } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useSelect from "../../hooks/useSelect";
 
 const CourseCard = ({ course }) => {
-    const { name, teacher_name, availableSeats, price, image, enroll,_id } = course;
+    const { name, teacher_name, availableSeats, price, image, enroll, _id } =
+        course;
     const { user } = useContext(AuthContext);
+    const [, refetch] = useSelect();
     const navigate = useNavigate();
-    const location= useLocation()
+    const location = useLocation();
     const handleSelectCourse = (course) => {
         console.log(course);
-        if (user && user.email ) {
-            const selectItem = {itemId: _id ,name,teacher_name,price,email:user.email}
-            fetch("http://localhost:5000/selects",{
-                method:"POST",
-                headers:{
-                    'content-type':'application/json'
+        if (user && user.email) {
+           
+            const selectItem = {
+                itemId: _id,
+                name,
+                teacher_name,
+                price,
+                email: user.email,
+            };
+            fetch("http://localhost:5000/selects", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
                 },
-                body:JSON.stringify(selectItem)
+                body: JSON.stringify(selectItem),
             })
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.insertedId) {
+                        refetch();
                         Swal.fire({
                             position: "top",
                             icon: "success",

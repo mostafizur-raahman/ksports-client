@@ -4,8 +4,14 @@ import { useContext } from "react";
 
 import { FaHeadphones } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useSelect from "../../hooks/useSelect";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+
+    const [select,refetch] = useSelect();
+
+
+    
     const handleLogout = () => {
         logOut()
             .then(() => {})
@@ -23,10 +29,10 @@ const Navbar = () => {
                 <NavLink to="/classes" activeClassName="active">
                     Classes
                 </NavLink>
-                <NavLink to="/dashboard" className="flex items-center gap-2">
+                <NavLink to="/dashboard/myselect" className="flex items-center gap-2">
                     
                     <p>Dashboard</p>
-                    <div className="badge badge-secondary">+99</div>
+                    <div className="badge badge-secondary">+{select?.length || 0}</div>
                 </NavLink>
                 <div className="flex items-center gap-4">
                     {user ? (

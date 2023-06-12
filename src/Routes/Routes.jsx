@@ -7,7 +7,8 @@ import Dashboard from "../Layout/Main/Dashboard/Dashboard";
 import Login from "../Layout/Login/Login";
 import Registration from "../Layout/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
-
+import MySelect from "../Layout/Main/Dashboard/MySelect/MySelect";
+import Enroll from "../Layout/Main/Dashboard/Enroll/Enroll";
 
 const router = createBrowserRouter([
     {
@@ -24,21 +25,31 @@ const router = createBrowserRouter([
             },
             {
                 path: "/classes",
-                element:<Class></Class>,
+                element: <Class></Class>,
             },
             {
                 path: "/login",
                 element: <Login></Login>,
             },
             {
-                path:'/register',
-                element:<Registration></Registration>
-            },
-            {
-                path: "/dashboard",
-                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+                path: "/register",
+                element: <Registration></Registration>,
             },
         ],
+    },
+    {
+        path: "/dashboard",
+        element: <PrivateRoute> <Dashboard></Dashboard></PrivateRoute>,
+        children:[
+            {
+                path:'myselect',
+                element:<MySelect></MySelect>
+            },
+            {
+                path:'enroll',
+                element:<Enroll></Enroll>
+            }
+        ]
     },
 ]);
 export default router;
