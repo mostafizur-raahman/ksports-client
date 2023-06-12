@@ -22,7 +22,7 @@ const CourseCard = ({ course }) => {
                 image,
                 teacher_name,
                 price,
-                email: user.email,
+                email: user?.email,
             };
             fetch("http://localhost:5000/selects", {
                 method: "POST",
