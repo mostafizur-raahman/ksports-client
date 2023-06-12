@@ -30,14 +30,30 @@ const AuthProvider = ({ children }) => {
             .then((res) => {
                 const loggedUser = res.user;
                 setUser(loggedUser);
-                Swal.fire({
-                    position: "top",
-                    icon: "success",
-                    title: "log in successfull!",
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
-                
+                const saveUser = {
+                    name: loggedUser.displayName,
+                    email: loggedUser.email,
+                };
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(saveUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: "top",
+                                icon: "success",
+                                title: "Registration successfull!",
+                                showConfirmButton: false,
+                                timer: 1500,
+                            });
+                            
+                        }
+                    });
             })
             .catch((e) => {
                 console.log(e.message);
