@@ -2,11 +2,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, handleGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const google =()=>{
+        handleGoogle();
+    }
     const to = location.state?.from?.pathname || "/";
     const handleLogin = (e) => {
         e.preventDefault();
@@ -70,6 +74,9 @@ const Login = () => {
                         New to Ksports{" "}
                         <span className="text-sky-500">Register</span>!
                     </Link>
+                    <div className="flex mx-auto p-2">
+                        <button onClick={google} className="flex items-center gap-2 text-2xl text-center"><FaGoogle className="text-red-500"></FaGoogle>Google</button>
+                    </div>
                 </div>
             </div>
         </div>

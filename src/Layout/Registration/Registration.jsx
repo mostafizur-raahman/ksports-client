@@ -1,11 +1,12 @@
 
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Registration = () => {
-    const{ createUser} = useContext(AuthContext);
+    const{ createUser, updateUserProfile} = useContext(AuthContext);
     const {
         register,
         handleSubmit,
@@ -17,6 +18,18 @@ const Registration = () => {
         .then(loggedUser =>{
             const user = loggedUser.user;
             console.log(user);
+            updateUserProfile(data.name,data.photoURL)
+            .then(()=>{
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Registration successfull!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  Navigate('/')
+            })
+            .catch(e=>console.log(e))
         })
     };
    

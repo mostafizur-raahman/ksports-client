@@ -10,13 +10,15 @@ import {
     updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import Swal from "sweetalert2";
+
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
+   
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -28,6 +30,14 @@ const AuthProvider = ({ children }) => {
             .then((res) => {
                 const loggedUser = res.user;
                 setUser(loggedUser);
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "log in successfull!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                
             })
             .catch((e) => {
                 console.log(e.message);

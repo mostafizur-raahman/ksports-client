@@ -1,33 +1,56 @@
 import { NavLink } from "react-router-dom";
-import './Navbar.css'
+import "./Navbar.css";
 import { useContext } from "react";
 
-import { FaHeadphones } from 'react-icons/fa';
+import { FaHeadphones } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
-    const {user,logOut} = useContext(AuthContext);
-    const handleLogout =()=>{
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
         logOut()
-        .then(()=>{})
-        .catch(e=> console.log(e))
-    }
+            .then(() => {})
+            .catch((e) => console.log(e));
+    };
     const navItems = (
         <>
-            <div className="flex gap-3">
-                <NavLink to='/' activeClassName="active">Home</NavLink>
-                <NavLink to='/instructor' activeClassName="active">Instructor</NavLink>
-                <NavLink to='/classes' activeClassName="active">Classes</NavLink>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-                {
-                    user ? <>
-                    <img src={user.photoURL} alt="user" />
-                    <button className="btn" onClick={handleLogout}>Log out</button>
-
-                    </> : <>
-                    <NavLink to='/register' activeClassName="active">Register</NavLink>
-                <NavLink to='/login' activeClassName="active">Login</NavLink>
-                    </>
-                }
+            <div className="flex gap-3 items-center">
+                <NavLink to="/" activeClassName="active">
+                    Home
+                </NavLink>
+                <NavLink to="/instructor" activeClassName="active">
+                    Instructor
+                </NavLink>
+                <NavLink to="/classes" activeClassName="active">
+                    Classes
+                </NavLink>
+                <NavLink to="/dashboard" className="flex items-center gap-2">
+                    
+                    <p>Dashboard</p>
+                    <div className="badge badge-secondary">+99</div>
+                </NavLink>
+                <div className="flex items-center gap-4">
+                    {user ? (
+                        <>
+                            <img
+                                className="w-[50px] h-[50px] rounded-full"
+                                src={user?.photoURL}
+                                alt="user"
+                            />
+                            <button className="btn" onClick={handleLogout}>
+                                Log out
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <NavLink to="/register" activeClassName="active">
+                                Register
+                            </NavLink>
+                            <NavLink to="/login" activeClassName="active">
+                                Login
+                            </NavLink>
+                        </>
+                    )}
+                </div>
             </div>
         </>
     );
@@ -69,7 +92,9 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">{navItems}</ul>
                 </div>
                 <div className="navbar-end">
-                    <p className="text-xl flex items-center gap-2"><FaHeadphones></FaHeadphones> Customer Care</p>
+                    <p className="text-xl flex items-center gap-2">
+                        <FaHeadphones></FaHeadphones> Customer Care
+                    </p>
                 </div>
             </div>
         </div>
