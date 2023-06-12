@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FaAlignJustify, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa";
+import { FaAlignJustify, FaHome, FaShoppingCart } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useSelect from "../../../hooks/useSelect";
