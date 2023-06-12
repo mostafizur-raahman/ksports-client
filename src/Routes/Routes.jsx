@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import MySelect from "../Layout/Main/Dashboard/MySelect/MySelect";
 import Enroll from "../Layout/Main/Dashboard/Enroll/Enroll";
 import AllUsers from "../Layout/Main/Dashboard/AllUsers/AllUsers";
+import AddClass from "../Layout/Main/Dashboard/AddClass/AddClass";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path:'allusers',
                 element:<AllUsers></AllUsers>
+            },
+            {
+                path:'addclass',
+                element:<AddClass></AddClass>
             }
         ]
     },

@@ -1,15 +1,16 @@
 import { useContext } from "react";
-import { FaAlignJustify, FaHome, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaAlignJustify, FaHome, FaShoppingCart, FaUser, FaUtensils } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useSelect from "../../../hooks/useSelect";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
     const [select] = useSelect();
-
-    const isAdmin = true;
-
+    //todo:admin
+    //const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -49,24 +50,33 @@ const Dashboard = () => {
                                 </span>
                             </h1>
                         </div>
-                        {
-                        isAdmin ? (
+                        {isAdmin ? (
                             <>
-                            <li>
-                            <Link
-                                to="/dashboard/myselect"
-                                className="flex items-center gap-3"
-                            >
-                                
-                                <FaAlignJustify></FaAlignJustify>  Manage Classes
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/dashboard/allusers" className="flex items-center gap-3">
-                               
-                            <FaUser></FaUser> Manage User
-                            </Link>
-                        </li>
+                                <li>
+                                    <Link
+                                        to="/dashboard/myselect"
+                                        className="flex items-center gap-3"
+                                    >
+                                        <FaAlignJustify></FaAlignJustify> Manage
+                                        Classes
+                                    </Link>
+                                </li>
+                                <li>
+                                <Link
+                                        to="/dashboard/addclass"
+                                        className="flex items-center gap-3"
+                                    >
+                                        <FaUtensils></FaUtensils> Add a class
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/dashboard/allusers"
+                                        className="flex items-center gap-3"
+                                    >
+                                        <FaUser></FaUser> Manage User
+                                    </Link>
+                                </li>
                             </>
                         ) : (
                             <>

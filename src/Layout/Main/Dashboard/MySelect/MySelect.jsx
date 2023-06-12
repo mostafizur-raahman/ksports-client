@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const MySelect = () => {
     const [select,refetch] = useSelect();
     console.log(select);
-    const total = select.reduce((sum, next) => next.price + sum, 0);
+    const total = select?.reduce((sum, next) => next?.price + sum, 0);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -39,7 +39,7 @@ const MySelect = () => {
         <>
             <div className="flex items-center gap-10 my-4  ">
                 <h1 className="text-3xl uppercase">
-                    Select item : {select.length}
+                    Select item : {select?.length}
                 </h1>
                 <h2 className="text-3xl uppercase">Total price :$ {total}</h2>
                 <button className="btn btn-secondary btn-sm flex items-center gap-2">
