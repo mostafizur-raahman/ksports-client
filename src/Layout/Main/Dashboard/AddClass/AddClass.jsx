@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 const image_hosting = import.meta.env.VITE_Image_Upload_token;
 const AddClass = () => {
-    console.log(image_hosting);
+    
+
+    const [axiosSecure] = useAxiosSecure();
     const {
         register,
         handleSubmit,
@@ -25,6 +29,20 @@ const AddClass = () => {
                 const {name,teacher_name,price,description} = data;
                 const newClass = {name,price:parseFloat(price),teacher_name,description,image:img_url};
                 console.log(newClass);
+                axiosSecure.post('/classes',newClass)
+                .then(data=>{
+                    console.log('after axios',data.data);
+                    if(data.data.insertedId){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'class add success!',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                          
+                    }
+                })
 
             }
         })
