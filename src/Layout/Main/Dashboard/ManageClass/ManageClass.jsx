@@ -1,14 +1,13 @@
-import { FaStripe, FaTrashAlt } from "react-icons/fa";
-import useSelect from "../../../../hooks/useSelect";
+import { FaTrashAlt } from "react-icons/fa";
+import useCourse from "../../../../hooks/useCourse";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
-const MySelect = () => {
-    const [select,refetch] = useSelect();
-    console.log(select);
-    const total = select?.reduce((sum, next) => next?.price + sum, 0);
+const ManageClass = () => {
+    const [courses,refetch  ] = useCourse();
+    const [axiosSecure]= useAxiosSecure();
 
-    const handleDelete = (id) => {
+    const handleDelete =(course)=>{
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -19,7 +18,7 @@ const MySelect = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selects/${id}`, {
+                fetch(`http://localhost:5000/selects/${course._id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -33,70 +32,79 @@ const MySelect = () => {
                             );
                         }
                     });
+                  
+
+                // axiosSecure.delete(`/selects/${course._id}`)
+                // .then(res =>{
+                //     console.log(course._id);
+                //     console.log('deleted data ',res.data);
+                //     refetch()
+                // })
             }
         });
-    };
+    }
     return (
-        <>
-            <div className="flex items-center gap-10 my-4  ">
-                <h1 className="text-3xl uppercase">
-                    Select item : {select?.length}
-                </h1>
-                <h2 className="text-3xl uppercase">Total price :$ {total}</h2>
-                {/* payment todo */}
-                <Link to='/dashboard/payment' className="btn btn-secondary btn-sm flex items-center gap-2">
-                    <FaStripe className="text-4xl"></FaStripe>Pay
-                </Link>
-            </div>
-            <div className="overflow-x-auto w-full">
+        <div>
+            <h1 className="text-4xl text-center my-6">Manage Class</h1>
+            <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
-                            <th>Name</th>
+                            <th>Iamge</th>
+                            <th>Teachar name</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* row 1 */}
-                        {select.map((item, index) => (
-                            <tr key={item._id}>
-                                <td>{index + 1}</td>
+                        {
+                            courses.map((course ,index)=>  <tr key={course._id}>
+                                <td>{index+1}</td>
                                 <td>
-                                    <div className="flex items-center ">
+                                    <div className="flex items-center space-x-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
                                                 <img
-                                                    src={item?.image}
+                                                    src={course.image}
                                                     alt="Avatar Tailwind CSS Component"
                                                 />
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="font-bold">{item.name}</div>
+                                    <span className="badge badge-ghost badge-sm">
+                                        { course.teacher_name  }
+                                    </span>
                                 </td>
-                                <td>$ {item.price}</td>
-
+                                <td>${course.price}</td>
+                                <td>
+                                    <button className="btn bg-yellow-400 btn-ghost btn-xs">
+                                        Update
+                                    </button>
+                                </td>
                                 <th>
                                     <button
-                                        onClick={() => handleDelete(item._id)}
+                                        onClick={() => handleDelete(course)}
                                         className="btn  text-white bg-red-500 btn-xs"
                                     >
                                         <FaTrashAlt></FaTrashAlt>
                                     </button>
                                 </th>
-                            </tr>
-                        ))}
+                            
+                            </tr> )
+                        }
+                       
                     </tbody>
                 </table>
             </div>
-        </>
+        </div>
     );
 };
 
-export default MySelect;
+export default ManageClass;

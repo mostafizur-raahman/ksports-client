@@ -11,6 +11,8 @@ import MySelect from "../Layout/Main/Dashboard/MySelect/MySelect";
 import Enroll from "../Layout/Main/Dashboard/Enroll/Enroll";
 import AllUsers from "../Layout/Main/Dashboard/AllUsers/AllUsers";
 import AddClass from "../Layout/Main/Dashboard/AddClass/AddClass";
+import ManageClass from "../Layout/Main/Dashboard/ManageClass/ManageClass";
+import Payment from "../Layout/Main/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
             {
                 path:'addclass',
                 element:<AddClass></AddClass>
+            },
+            {
+                path:'manageClass',
+                element:<ManageClass></ManageClass>
+            },
+            {
+                path:'payment',
+                element:<Payment></Payment>
             }
         ]
     },

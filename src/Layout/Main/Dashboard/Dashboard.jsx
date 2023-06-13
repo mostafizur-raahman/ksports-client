@@ -54,7 +54,7 @@ const Dashboard = () => {
                             <>
                                 <li>
                                     <Link
-                                        to="/dashboard/myselect"
+                                        to="/dashboard/manageClass"
                                         className="flex items-center gap-3"
                                     >
                                         <FaAlignJustify></FaAlignJustify> Manage

@@ -9,8 +9,6 @@ const AddClass = () => {
     const {
         register,
         handleSubmit,
-        
-        formState: { errors },
     } = useForm();
 
     const image_hosting_url =`https://api.imgbb.com/1/upload?key=${image_hosting}`
