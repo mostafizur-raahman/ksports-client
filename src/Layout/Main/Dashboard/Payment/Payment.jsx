@@ -6,6 +6,7 @@ import useSelect from "../../../../hooks/useSelect";
 const stripePromise = loadStripe(import.meta.env.VITE_stripe_pk);
 const Payment = () => {
     const [select] = useSelect();
+    const cart = select.length;
     const total = select?.reduce((sum, next) => next.price + sum, 0);
     const price = parseFloat(total.toFixed(2));
     return (
@@ -14,7 +15,7 @@ const Payment = () => {
 
            
            <Elements stripe={stripePromise}>
-                <CheckoutForm price={price}></CheckoutForm>
+                <CheckoutForm cart={cart} price={price}></CheckoutForm>
             </Elements>
            
         </div>

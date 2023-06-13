@@ -13,7 +13,7 @@ const useSelect = () => {
             if(!user || !token){
                 return [];
             }
-            const response = await fetch(`http://localhost:5000/selects?email=${user?.email}`,{
+            const response = await fetch(`https://sports-academics-server.vercel.app/selects?email=${user?.email}`,{
                 headers:{
                     authorization : `bearer ${token}`
                 }

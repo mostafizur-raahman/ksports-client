@@ -19,7 +19,7 @@ const MySelect = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selects/${id}`, {
+                fetch(`https://sports-academics-server.vercel.app/selects/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

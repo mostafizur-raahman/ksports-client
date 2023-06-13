@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { FaHeadphones } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -10,8 +10,14 @@ const Navbar = () => {
 
     const [select,refetch] = useSelect();
 
-
-    
+    const [theme,setTheme] = useState(false)
+    const toggleTheme =()=>{
+        setTheme(!theme)
+    }
+    useEffect(()=>{
+        if(theme) document.body.classList.add('dark');
+        else document.body.classList.remove('dark');
+    },[theme])
     const handleLogout = () => {
         logOut()
             .then(() => {})
@@ -34,6 +40,7 @@ const Navbar = () => {
                     <p>Dashboard</p>
                     <div className="badge badge-secondary">+{select?.length || 0}</div>
                 </NavLink>
+                <button className="btn" onClick={toggleTheme}>{theme?"Light" : 'Dark'}</button>
                 <div className="flex items-center gap-4">
                     {user ? (
                         <>

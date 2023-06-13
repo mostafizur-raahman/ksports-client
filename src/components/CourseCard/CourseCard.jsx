@@ -24,7 +24,7 @@ const CourseCard = ({ course }) => {
                 price,
                 email: user?.email,
             };
-            fetch("http://localhost:5000/selects", {
+            fetch("https://sports-academics-server.vercel.app/selects", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

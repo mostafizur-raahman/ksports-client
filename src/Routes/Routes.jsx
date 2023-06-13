@@ -8,16 +8,18 @@ import Login from "../Layout/Login/Login";
 import Registration from "../Layout/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import MySelect from "../Layout/Main/Dashboard/MySelect/MySelect";
-import Enroll from "../Layout/Main/Dashboard/Enroll/Enroll";
 import AllUsers from "../Layout/Main/Dashboard/AllUsers/AllUsers";
 import AddClass from "../Layout/Main/Dashboard/AddClass/AddClass";
 import ManageClass from "../Layout/Main/Dashboard/ManageClass/ManageClass";
 import Payment from "../Layout/Main/Dashboard/Payment/Payment";
+import PaymentHistory from "../Layout/Main/Dashboard/PaymentHistory/PaymentHistory";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -44,14 +46,11 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <PrivateRoute> <Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             {
                 path:'myselect',
                 element:<MySelect></MySelect>
-            },
-            {
-                path:'enroll',
-                element:<Enroll></Enroll>
             },
             {
                 path:'allusers',
@@ -68,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path:'payment',
                 element:<Payment></Payment>
+            },
+            {
+                path:'paymentHistory',
+                element:<PaymentHistory></PaymentHistory>
             }
         ]
     },

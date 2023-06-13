@@ -1,3 +1,7 @@
 .active{
     color: yellow;
 }
+.dark{
+    background-color: gray;
+    color: rgb(135, 90, 90);
+}

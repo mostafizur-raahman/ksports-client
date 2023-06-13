@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FaAlignJustify, FaHome, FaShoppingCart, FaUser, FaUtensils } from "react-icons/fa";
+import { FaAlignJustify, FaDollarSign, FaHome, FaShoppingCart, FaUser, FaUtensils } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useSelect from "../../../hooks/useSelect";
@@ -93,11 +93,10 @@ const Dashboard = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="/dashboard/enroll"
+                                        to="/dashboard/paymentHistory"
                                         className="flex items-center gap-3"
                                     >
-                                        <FaAlignJustify></FaAlignJustify> Enroll
-                                        class
+                                       <FaDollarSign></FaDollarSign> Payment Histroy
                                     </Link>
                                 </li>
                             </>

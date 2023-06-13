@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ price,cart }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const [cardError, setCardError] = useState("");
     const [clientSecret, setClientSecret] = useState("");
-    const [transactionId,setTransationId] = useState('');
+    const [transactionId, setTransationId] = useState("");
 
     useEffect(() => {
         axiosSecure.post("/create-payment-intent", { price }).then((res) => {
@@ -53,10 +53,17 @@ const CheckoutForm = ({ price }) => {
             console.log(confirmError);
         }
         console.log(paymentIntent);
-        if(paymentIntent.status === 'succeeded' ){
-            const transactionId  = paymentIntent.id;
-            setTransationId(paymentIntent.id);
-
+        if (paymentIntent.status === "succeeded") {
+            const transactionId = paymentIntent.id;
+            setTransationId(transactionId);
+            const payment = { email: user?.email,date: new Date(), transactionId, price ,quantity: cart};
+            axiosSecure.post('/payments',payment)
+            .then(res =>{
+                console.log(res.data);
+                if(res.data.insertedId){
+                    ///
+                }
+            })
         }
     };
 
@@ -95,12 +102,16 @@ const CheckoutForm = ({ price }) => {
                     {cardError && <p className="text-red-600">{cardError}</p>}
                 </div>
                 <div>
-                    {
-                        transactionId && <div className="text-center ">
-                            <p className="text-sky-400 text-4xl font-bold text-center">payment success.</p>
-                            <p className="mt-4">Your transation id : {transactionId}</p>
+                    {transactionId && (
+                        <div className="text-center ">
+                            <p className="text-sky-400 text-4xl font-bold text-center">
+                                payment success.
+                            </p>
+                            <p className="mt-4">
+                                Your transation id : {transactionId}
+                            </p>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
         </div>

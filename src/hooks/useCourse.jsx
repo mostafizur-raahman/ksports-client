@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 const useCourse = () => {
     // const [courses, setCourses] = useState([]);
     // useEffect(() => {
-    //     fetch("http://localhost:5000/classes")
+    //     fetch("https://sports-academics-server.vercel.app/classes")
     //         .then((res) => res.json())
     //         .then((data) => {
     //             setCourses(data);
@@ -14,7 +14,7 @@ const useCourse = () => {
     const { data: courses = [],refetch } = useQuery({
         queryKey: ["courses"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/classes");
+            const res = await fetch("https://sports-academics-server.vercel.app/classes");
             return res.json();
         },
     });

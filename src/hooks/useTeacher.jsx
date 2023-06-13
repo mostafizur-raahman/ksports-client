@@ -4,7 +4,7 @@ const useTeacher = () => {
     const [teacher, setTeacher] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/teacher")
+        fetch("https://sports-academics-server.vercel.app/teacher")
             .then((res) => res.json())
             .then((data) => {
                 setTeacher(data);
